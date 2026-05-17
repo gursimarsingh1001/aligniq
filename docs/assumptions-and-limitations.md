@@ -2,15 +2,14 @@
 
 ## Assumptions
 
-- The evaluation build uses seeded data and a local service layer.
+- The evaluation build uses seeded data and a local service layer with browser localStorage persistence so workflow state survives page refresh during review.
 - Evaluation accounts represent the three required roles: Employee, Manager, and Admin / HR.
-- Browser localStorage is acceptable for preserving evaluation workflow state across refreshes.
-- The included SQL schema represents the intended production persistence model.
+- The included PostgreSQL/Supabase-ready SQL schema represents the intended production persistence model.
 - Organization-specific identity, email, Teams, and AI integrations require approved credentials and configuration outside this repository.
 
 ## Current Limitations
 
-- The app is not connected to a production database.
+- The app is not connected to a server-side production database in the evaluation build.
 - Local email/password authentication is used for evaluation accounts.
 - Microsoft Entra ID SSO is future scope.
 - Real Email/Teams notification delivery is future scope.
@@ -21,7 +20,7 @@
 
 ## Production Persistence
 
-Production database persistence can be connected using the SQL schema under `db/`. The recommended path is to map existing service-layer functions to database operations while keeping UI components and validation rules stable.
+Production database persistence can be connected using the PostgreSQL/Supabase-ready schema under `db/`. The service layer is structured so local operations can be replaced with production database operations while keeping UI components and validation rules stable.
 
 ## Production Identity
 

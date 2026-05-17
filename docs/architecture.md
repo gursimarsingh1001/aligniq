@@ -13,7 +13,7 @@ Browser UI
   -> localStorage evaluation state where persistence is needed
 ```
 
-The current build runs fully in the browser and Next.js runtime without requiring a database connection. The service layer keeps data operations isolated so the same interfaces can later be backed by Supabase/PostgreSQL.
+The current build runs fully in the browser and Next.js runtime without requiring a server-side database connection. The evaluation build uses a local service layer with browser localStorage persistence so workflow state survives page refresh during review. The service layer keeps data operations isolated so the same interfaces can later be backed by Supabase/PostgreSQL.
 
 ## Role-Based Routing
 
@@ -84,7 +84,7 @@ The evaluation build uses local email/password accounts. Session state is intent
 
 ## Evaluation State Persistence
 
-Important workflow state is persisted through a versioned localStorage helper in `lib/storage/local-store.ts`. This allows actions such as submissions, approvals, check-ins, notification read status, and local evaluation state to survive page refreshes.
+Important workflow state is persisted through a versioned localStorage helper in `lib/storage/local-store.ts`. This allows actions such as goal submissions, manager approvals, check-ins, notification read status, and local evaluation state to survive page refreshes. Server-side database persistence is not implemented in the evaluation build, but the included PostgreSQL/Supabase-ready schema and service boundaries provide a direct production upgrade path.
 
 ## AlignIQ Assistant Approach
 

@@ -1,6 +1,6 @@
 # AlignIQ — Goal Setting & Performance Tracking Portal
 
-AlignIQ is an internal enterprise portal for goal planning, manager approvals, quarterly achievement tracking, HR reporting, and governance workflows. The evaluation build focuses on a complete role-based experience for Employees, Managers, and Admin / HR users using a local service layer and seeded data.
+AlignIQ is an internal enterprise portal for goal planning, manager approvals, quarterly achievement tracking, HR reporting, and governance workflows. The evaluation build focuses on a complete role-based experience for Employees, Managers, and Admin / HR users using a local service layer, seeded data, and browser localStorage persistence so workflow state survives page refresh during review.
 
 ## Product Summary
 
@@ -50,7 +50,7 @@ AlignIQ helps organizations align quarterly goals, enforce weightage rules, trac
 - shadcn/ui-style reusable components
 - Zod validation
 - Local service layer with seeded evaluation data
-- Browser localStorage persistence for evaluation state
+- Browser localStorage persistence so evaluation workflows survive refresh
 - PostgreSQL/Supabase-ready SQL schema included under `db/`
 
 ## Local Setup
@@ -119,7 +119,9 @@ docs/                Submission documentation
 
 ## Known Limitations
 
-- The evaluation build uses a local service layer and seeded data rather than a connected production database.
+- The evaluation build uses a local service layer with browser localStorage persistence so workflow state survives page refresh during review.
+- Server-side database persistence is not connected in the evaluation build.
+- The repository includes a PostgreSQL/Supabase-ready schema, and the service layer is structured so it can be replaced with production database operations.
 - Authentication is local email/password for evaluation users.
 - Microsoft Entra ID SSO can be added in production through organization-approved app registration and role mapping.
 - Email and Teams delivery can be connected later through approved organization channels.
