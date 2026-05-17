@@ -6,6 +6,12 @@ AlignIQ is an internal enterprise portal for goal planning, manager approvals, q
 
 AlignIQ helps organizations align quarterly goals, enforce weightage rules, track achievement progress, manage manager check-ins, and give HR teams visibility into completion, exceptions, audit activity, and reporting.
 
+## Architecture Diagram
+
+![AlignIQ Architecture Diagram](./public/assets/docs/aligniq-architecture-diagram.png)
+
+Detailed architecture notes are available in [docs/architecture.md](docs/architecture.md).
+
 ## Core Features
 
 - Role-based login for Employee, Manager, and Admin / HR
@@ -113,7 +119,7 @@ docs/                Submission documentation
 - Analytics dashboard with heatmap
 - Rule-based escalation workspace
 - In-app notification center
-- Local, privacy-safe AlignIQ Assistant
+- AlignIQ Assistant is local and rule-based in the evaluation build
 - localStorage persistence for evaluation workflows
 - Responsive desktop and mobile navigation
 
@@ -125,7 +131,7 @@ docs/                Submission documentation
 - Authentication is local email/password for evaluation users.
 - Microsoft Entra ID SSO can be added in production through organization-approved app registration and role mapping.
 - Email and Teams delivery can be connected later through approved organization channels.
-- AlignIQ Assistant is local and rule-based; no external AI APIs are used.
+- AlignIQ Assistant is local and rule-based in the evaluation build. No external AI APIs are used.
 
 ## Future Scope
 
@@ -133,5 +139,5 @@ docs/                Submission documentation
 - Replace local evaluation auth with organization SSO.
 - Add production-grade audit persistence and notification delivery.
 - Add scheduled background jobs for escalations and cycle enforcement.
-- Add private, organization-approved AI/RAG integration if required.
+- Connect to an organization-approved internal LLM or private RAG service if required.
 - Expand reporting filters, exports, and executive analytics.

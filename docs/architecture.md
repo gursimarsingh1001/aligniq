@@ -2,6 +2,10 @@
 
 AlignIQ is structured as a Next.js App Router application with a clear separation between UI, domain services, validation, seeded data, and future database integration.
 
+## Technology and Hosting Architecture
+
+![AlignIQ Technology and Hosting Architecture](../public/assets/docs/aligniq-architecture-diagram.png)
+
 ## High-Level Flow
 
 ```text
@@ -88,13 +92,13 @@ Important workflow state is persisted through a versioned localStorage helper in
 
 ## AlignIQ Assistant Approach
 
-The assistant is local and rule-based:
+AlignIQ Assistant is local and rule-based in the evaluation build. No external AI APIs are used.
 
 - HR policy answers are generated from local policy rules.
 - Goal Copilot suggestions are deterministic based on keywords and measurement rules.
 - Check-in summaries use existing seeded goal/check-in/report data.
 
-No external AI APIs are used. In production, this can be connected to an organization-approved internal LLM or private RAG service.
+In production, this can be connected to an organization-approved internal LLM or private RAG service.
 
 ## Production Upgrade Path
 
@@ -106,4 +110,4 @@ Recommended production path:
 4. Add scheduled jobs for cycle windows and escalations.
 5. Add server-side authorization checks.
 6. Add observability, error tracking, and automated tests.
-7. Optionally connect private AI/RAG infrastructure for assistant features.
+7. Optionally connect an organization-approved internal LLM or private RAG service for assistant features.
